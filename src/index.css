@@ -1,0 +1,965 @@
+@import "tailwindcss";
+
+@theme {
+  --font-display: 'Barlow Condensed', 'Outfit', sans-serif;
+  --font-title: 'Syne', 'Outfit', sans-serif;
+  --font-sans: 'Outfit', 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+
+  --color-pitch-black: #040806;
+  --color-pitch-dark: #070e0a;
+  --color-pitch-surface: #0c1611;
+  --color-pitch-elevated: #112019;
+  --color-pitch-border: rgba(16, 185, 129, 0.22);
+  --color-pitch-gold: #f59e0b;
+  --color-pitch-emerald: #10b981;
+  --color-pitch-neon: #22c55e;
+}
+
+@layer base {
+  :root {
+    --font-display: 'Barlow Condensed', 'Outfit', sans-serif;
+    --font-title: 'Syne', 'Outfit', sans-serif;
+    --font-sans: 'Outfit', 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+  }
+
+  body {
+    background-color: #030705;
+    color: #e2e8f0;
+    font-family: var(--font-sans);
+    letter-spacing: -0.01em;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+    font-weight: 800;
+  }
+}
+
+/* ==========================================================================
+   ANIMATED METALLIC BROADCAST TYPOGRAPHY
+   ========================================================================== */
+@keyframes textShimmerWave {
+  0% { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+.text-animated-gold {
+  background: linear-gradient(90deg, #f59e0b 0%, #fef08a 25%, #ffffff 50%, #f59e0b 75%, #d97706 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: textShimmerWave 5s linear infinite;
+}
+
+.text-animated-emerald {
+  background: linear-gradient(90deg, #10b981 0%, #6ee7b7 25%, #ffffff 50%, #34d399 75%, #059669 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: textShimmerWave 4.5s linear infinite;
+}
+
+.text-animated-cyan {
+  background: linear-gradient(90deg, #06b6d4 0%, #a5f3fc 25%, #ffffff 50%, #22d3ee 75%, #0284c7 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: textShimmerWave 5s linear infinite;
+}
+
+.text-animated-violet {
+  background: linear-gradient(90deg, #8b5cf6 0%, #ddd6fe 25%, #ffffff 50%, #c084fc 75%, #6d28d9 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: textShimmerWave 5.5s linear infinite;
+}
+
+.text-animated-silver {
+  background: linear-gradient(90deg, #e2e8f0 0%, #ffffff 30%, #94a3b8 60%, #ffffff 80%, #e2e8f0 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: textShimmerWave 6s linear infinite;
+}
+
+/* ==========================================================================
+   ENHANCED PRO BROADCAST STADIUM DESIGN SYSTEM (+20% ELEVATION)
+   ========================================================================== */
+
+/* Carbon Fiber & Stadium Surface Panels */
+.stadium-panel {
+  position: relative;
+  background: linear-gradient(180deg, rgba(13, 24, 18, 0.92) 0%, rgba(7, 13, 10, 0.96) 100%);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-top-color: rgba(255, 255, 255, 0.2);
+  border-bottom-color: rgba(0, 0, 0, 0.6);
+  box-shadow: 0 14px 40px -4px rgba(0, 0, 0, 0.75), inset 0 1px 0 0 rgba(255, 255, 255, 0.16);
+}
+
+.stadium-panel-glow {
+  position: relative;
+  background: linear-gradient(180deg, rgba(15, 28, 21, 0.94) 0%, rgba(8, 15, 11, 0.98) 100%);
+  backdrop-filter: blur(28px);
+  -webkit-backdrop-filter: blur(28px);
+  border: 1px solid rgba(16, 185, 129, 0.38);
+  border-top-color: rgba(52, 211, 153, 0.5);
+  box-shadow: 0 18px 52px -4px rgba(0, 0, 0, 0.85), 0 0 32px -4px rgba(16, 185, 129, 0.18), inset 0 1px 0 0 rgba(255, 255, 255, 0.28);
+}
+
+.stadium-card {
+  position: relative;
+  background: linear-gradient(180deg, rgba(12, 22, 16, 0.8) 0%, rgba(6, 12, 9, 0.9) 100%);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-top-color: rgba(255, 255, 255, 0.16);
+  box-shadow: 0 8px 24px -2px rgba(0, 0, 0, 0.5);
+  transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.stadium-card:hover {
+  background: linear-gradient(180deg, rgba(17, 32, 24, 0.92) 0%, rgba(9, 18, 13, 0.96) 100%);
+  border-color: rgba(16, 185, 129, 0.55);
+  border-top-color: rgba(52, 211, 153, 0.75);
+  box-shadow: 0 14px 38px -4px rgba(0, 0, 0, 0.75), 0 0 24px -2px rgba(16, 185, 129, 0.25);
+  transform: translateY(-2px);
+}
+
+/* Stadium Grade Inputs */
+.stadium-input {
+  background: rgba(4, 9, 6, 0.88);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-top-color: rgba(255, 255, 255, 0.22);
+  color: #f8fafc;
+  border-radius: 0.625rem;
+  padding: 0.75rem 1rem;
+  font-size: 0.875rem;
+  font-family: var(--font-sans);
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.stadium-input:focus {
+  outline: none;
+  border-color: #22c55e;
+  box-shadow: 0 0 0 2px rgba(34, 197, 94, 0.28), 0 0 20px rgba(34, 197, 94, 0.35);
+  background: rgba(7, 15, 11, 0.96);
+}
+
+/* Broadcast Action Buttons */
+.btn-broadcast-primary {
+  background: linear-gradient(135deg, #22c55e 0%, #10b981 50%, #059669 100%);
+  color: #020603;
+  font-family: var(--font-display);
+  font-size: 1.125rem;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  padding: 0.65rem 1.5rem;
+  border-radius: 0.625rem;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  box-shadow: 0 4px 20px rgba(34, 197, 94, 0.48), inset 0 1px 0 rgba(255, 255, 255, 0.6);
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.btn-broadcast-primary:hover {
+  background: linear-gradient(135deg, #4ade80 0%, #22c55e 50%, #10b981 100%);
+  box-shadow: 0 6px 28px rgba(34, 197, 94, 0.7), inset 0 1px 0 rgba(255, 255, 255, 0.75);
+  transform: translateY(-1px);
+}
+
+.btn-broadcast-primary:active {
+  transform: translateY(0);
+}
+
+.btn-broadcast-secondary {
+  background: rgba(255, 255, 255, 0.07);
+  backdrop-filter: blur(14px);
+  color: #f1f5f9;
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  padding: 0.65rem 1.25rem;
+  border-radius: 0.625rem;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-top-color: rgba(255, 255, 255, 0.28);
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.btn-broadcast-secondary:hover {
+  background: rgba(255, 255, 255, 0.14);
+  border-color: rgba(255, 255, 255, 0.35);
+  color: #ffffff;
+  transform: translateY(-1px);
+}
+
+.btn-broadcast-gold {
+  background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 50%, #d97706 100%);
+  color: #1c1002;
+  font-family: var(--font-display);
+  font-size: 1.125rem;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  padding: 0.65rem 1.5rem;
+  border-radius: 0.625rem;
+  border: 1px solid rgba(255, 255, 255, 0.45);
+  box-shadow: 0 4px 20px rgba(245, 158, 11, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.6);
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.btn-broadcast-gold:hover {
+  background: linear-gradient(135deg, #fcd34d 0%, #fbbf24 50%, #f59e0b 100%);
+  box-shadow: 0 6px 28px rgba(245, 158, 11, 0.65), inset 0 1px 0 rgba(255, 255, 255, 0.7);
+  transform: translateY(-1px);
+}
+
+/* Authentic Grass Lawn Stripes with Match Mowing Patterns */
+.pitch-stripes {
+  background: repeating-linear-gradient(
+    180deg,
+    #0d2b1c 0px,
+    #0d2b1c 42px,
+    #081e14 42px,
+    #081e14 84px
+  );
+}
+
+/* Gold Vault Accent Frame */
+.gold-vault-frame {
+  position: relative;
+  background: linear-gradient(180deg, rgba(20, 16, 8, 0.94) 0%, rgba(10, 8, 4, 0.98) 100%);
+  border: 1px solid rgba(245, 158, 11, 0.45);
+  border-top-color: rgba(252, 211, 77, 0.7);
+  box-shadow: 0 12px 36px -4px rgba(0, 0, 0, 0.8), 0 0 24px -2px rgba(245, 158, 11, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.25);
+}
+
+/* Pro Manager License Digital Pass Card */
+.pro-license-card {
+  position: relative;
+  background: linear-gradient(145deg, rgba(16, 36, 26, 0.95) 0%, rgba(8, 18, 13, 0.98) 60%, rgba(5, 12, 9, 1) 100%);
+  border: 1px solid rgba(52, 211, 153, 0.45);
+  border-top-color: rgba(245, 158, 11, 0.8);
+  border-right-color: rgba(52, 211, 153, 0.5);
+  box-shadow: 0 20px 50px -10px rgba(0, 0, 0, 0.9), 0 0 35px -5px rgba(16, 185, 129, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.35);
+  overflow: hidden;
+}
+
+.pro-license-card::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.08) 0%, transparent 60%);
+  pointer-events: none;
+}
+
+.pro-license-shimmer {
+  background: linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.12) 50%, transparent 100%);
+  background-size: 200% 100%;
+  animation: shimmer 6s infinite;
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+/* Tactical Radar Sweep */
+@keyframes radarSweep {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.radar-sweep-beam {
+  animation: radarSweep 4s linear infinite;
+  transform-origin: 50% 50%;
+}
+
+/* Glowing Football Pitch Pulse */
+@keyframes ballPulse {
+  0%, 100% { transform: scale(1); filter: drop-shadow(0 0 6px rgba(250, 204, 21, 0.9)); }
+  50% { transform: scale(1.25); filter: drop-shadow(0 0 14px rgba(250, 204, 21, 1)); }
+}
+
+.pitch-ball-glow {
+  animation: ballPulse 1.2s ease-in-out infinite;
+}
+
+/* ==========================================================================
+   ANIMATED LIGHTING BEAM GOING AROUND SIGN IN & UP TERMINAL
+   ========================================================================== */
+.terminal-laser-frame {
+  position: relative;
+  border-radius: 1.5rem;
+  overflow: hidden;
+  padding: 2.5px;
+  box-shadow: 0 25px 60px -12px rgba(0, 0, 0, 0.85), 0 0 30px -5px rgba(16, 185, 129, 0.25);
+}
+
+.terminal-laser-beam {
+  position: absolute;
+  inset: -150%;
+  background: conic-gradient(
+    from 0deg,
+    transparent 0deg,
+    transparent 75deg,
+    rgba(16, 185, 129, 0.2) 90deg,
+    rgba(52, 211, 153, 0.9) 115deg,
+    #ffffff 125deg,
+    #22c55e 135deg,
+    rgba(245, 158, 11, 0.85) 145deg,
+    transparent 165deg,
+    transparent 255deg,
+    rgba(52, 211, 153, 0.3) 270deg,
+    rgba(34, 197, 94, 0.85) 290deg,
+    #ffffff 300deg,
+    rgba(245, 158, 11, 0.7) 310deg,
+    transparent 330deg,
+    transparent 360deg
+  );
+  animation: laserSpin 5s linear infinite;
+  pointer-events: none;
+}
+
+.terminal-laser-beam-fast {
+  position: absolute;
+  inset: -150%;
+  background: conic-gradient(
+    from 180deg,
+    transparent 0deg,
+    transparent 80deg,
+    rgba(250, 204, 21, 0.3) 95deg,
+    #f59e0b 115deg,
+    #ffffff 125deg,
+    #10b981 135deg,
+    transparent 155deg,
+    transparent 360deg
+  );
+  animation: laserSpinReverse 3.8s linear infinite;
+  pointer-events: none;
+  opacity: 0.75;
+}
+
+@keyframes laserSpin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes laserSpinReverse {
+  0% { transform: rotate(360deg); }
+  100% { transform: rotate(0deg); }
+}
+
+.terminal-laser-inner {
+  position: relative;
+  z-index: 10;
+  border-radius: calc(1.5rem - 2.5px);
+  background: linear-gradient(180deg, rgba(11, 23, 17, 0.96) 0%, rgba(6, 13, 9, 0.98) 100%);
+  backdrop-filter: blur(28px);
+  -webkit-backdrop-filter: blur(28px);
+}
+
+/* ==========================================================================
+   ANIMATED "MANAGER NOL" TEXT BACKGROUND GOING AROUND (WAY FASTER & HIGH CONTRAST)
+   ========================================================================== */
+@keyframes marqueeScrollLeft {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+@keyframes marqueeScrollRight {
+  0% { transform: translateX(-50%); }
+  100% { transform: translateX(0); }
+}
+
+.animate-marquee-left {
+  display: flex;
+  width: max-content;
+  animation: marqueeScrollLeft 12s linear infinite;
+  will-change: transform;
+}
+
+.animate-marquee-right {
+  display: flex;
+  width: max-content;
+  animation: marqueeScrollRight 11s linear infinite;
+  will-change: transform;
+}
+
+.animate-marquee-fast {
+  display: flex;
+  width: max-content;
+  animation: marqueeScrollLeft 8.5s linear infinite;
+  will-change: transform;
+}
+
+.animate-marquee-blitz {
+  display: flex;
+  width: max-content;
+  animation: marqueeScrollRight 7s linear infinite;
+  will-change: transform;
+}
+
+.stroke-text-emerald {
+  -webkit-text-stroke: 2px rgba(52, 211, 153, 0.65);
+  color: rgba(16, 185, 129, 0.12);
+  text-shadow: 0 0 16px rgba(16, 185, 129, 0.45);
+}
+
+.stroke-text-gold {
+  -webkit-text-stroke: 2px rgba(251, 191, 36, 0.7);
+  color: rgba(245, 158, 11, 0.14);
+  text-shadow: 0 0 16px rgba(245, 158, 11, 0.45);
+}
+
+.stroke-text-white {
+  -webkit-text-stroke: 1.8px rgba(255, 255, 255, 0.55);
+  color: rgba(255, 255, 255, 0.1);
+  text-shadow: 0 0 14px rgba(255, 255, 255, 0.35);
+}
+
+.stroke-text-cyan {
+  -webkit-text-stroke: 2px rgba(56, 189, 248, 0.7);
+  color: rgba(14, 165, 233, 0.14);
+  text-shadow: 0 0 16px rgba(14, 165, 233, 0.45);
+}
+
+.stroke-text-purple {
+  -webkit-text-stroke: 2px rgba(192, 132, 252, 0.7);
+  color: rgba(168, 85, 247, 0.14);
+  text-shadow: 0 0 16px rgba(168, 85, 247, 0.45);
+}
+
+/* ==========================================================================
+   COOKING UP / MATCHDAY LOADING SCREEN ANIMATIONS
+   ========================================================================== */
+@keyframes cookingPulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.9;
+    box-shadow: 0 0 30px rgba(16, 185, 129, 0.4), 0 0 60px rgba(16, 185, 129, 0.2);
+  }
+  50% {
+    transform: scale(1.04);
+    opacity: 1;
+    box-shadow: 0 0 50px rgba(16, 185, 129, 0.7), 0 0 90px rgba(245, 158, 11, 0.35);
+  }
+}
+
+.animate-cooking-pulse {
+  animation: cookingPulse 2s ease-in-out infinite;
+}
+
+@keyframes orbitSpin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.animate-orbit-spin {
+  animation: orbitSpin 10s linear infinite;
+}
+
+.animate-orbit-spin-reverse {
+  animation: orbitSpin 8s linear infinite reverse;
+}
+
+@keyframes stadiumLightGlow {
+  0%, 100% { opacity: 0.35; transform: scale(1); }
+  50% { opacity: 0.7; transform: scale(1.1); }
+}
+
+.animate-stadium-lights {
+  animation: stadiumLightGlow 3s ease-in-out infinite;
+}
+
+/* Custom Tactical Scrollbar */
+::-webkit-scrollbar {
+  width: 7px;
+  height: 7px;
+}
+::-webkit-scrollbar-track {
+  background: #030705;
+}
+::-webkit-scrollbar-thumb {
+  background: #153123;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #22c55e;
+}
+
+/* ==========================================================================
+   MULTI-COLORED ANIMATED LASER LIGHTING BORDERS (SPECIALIZED PER ZONE)
+   ========================================================================== */
+
+/* 1. GOLD LASER BEAM (FOR MANAGER NOL LOGOS) */
+.laser-frame-gold {
+  position: relative;
+  overflow: hidden;
+  padding: 2.5px;
+  border-radius: 0.875rem;
+  box-shadow: 0 0 22px rgba(245, 158, 11, 0.45);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.laser-beam-gold {
+  position: absolute;
+  inset: -150%;
+  background: conic-gradient(
+    from 0deg,
+    transparent 0deg,
+    transparent 80deg,
+    rgba(245, 158, 11, 0.4) 95deg,
+    #f59e0b 112deg,
+    #fef08a 122deg,
+    #ffffff 126deg,
+    #fbbf24 132deg,
+    rgba(217, 119, 6, 0.85) 145deg,
+    transparent 165deg,
+    transparent 260deg,
+    rgba(251, 191, 36, 0.35) 275deg,
+    #f59e0b 295deg,
+    #ffffff 305deg,
+    #fbbf24 315deg,
+    transparent 335deg,
+    transparent 360deg
+  );
+  animation: laserSpin 3.2s linear infinite;
+  pointer-events: none;
+}
+
+/* 2. ELECTRIC SAPPHIRE / ROYAL BLUE & CYAN LASER (FOR LINEUP PITCH) */
+.laser-frame-pitch {
+  position: relative;
+  overflow: hidden;
+  padding: 3px;
+  border-radius: 1.75rem;
+  box-shadow: 0 25px 60px -10px rgba(0, 0, 0, 0.95), 0 0 45px -5px rgba(14, 165, 233, 0.45);
+}
+
+.laser-beam-pitch {
+  position: absolute;
+  inset: -150%;
+  background: conic-gradient(
+    from 0deg,
+    transparent 0deg,
+    transparent 75deg,
+    rgba(14, 165, 233, 0.3) 90deg,
+    #0284c7 110deg,
+    #38bdf8 120deg,
+    #ffffff 126deg,
+    #06b6d4 134deg,
+    rgba(59, 130, 246, 0.85) 148deg,
+    transparent 170deg,
+    transparent 255deg,
+    rgba(6, 182, 212, 0.35) 270deg,
+    #38bdf8 290deg,
+    #ffffff 300deg,
+    #0284c7 312deg,
+    transparent 332deg,
+    transparent 360deg
+  );
+  animation: laserSpin 5s linear infinite;
+  pointer-events: none;
+}
+
+/* 3. ELECTRIC CRIMSON / NEON MAGENTA & SUNSET ORANGE LASER (FOR CLICKED PLAYER CARD) */
+.laser-frame-crimson {
+  position: relative;
+  overflow: hidden;
+  padding: 3px;
+  border-radius: 1.75rem;
+  box-shadow: 0 30px 70px -12px rgba(0, 0, 0, 0.98), 0 0 50px -5px rgba(244, 63, 94, 0.48);
+}
+
+.laser-beam-crimson {
+  position: absolute;
+  inset: -150%;
+  background: conic-gradient(
+    from 0deg,
+    transparent 0deg,
+    transparent 75deg,
+    rgba(244, 63, 94, 0.35) 90deg,
+    #e11d48 110deg,
+    #ff007f 120deg,
+    #ffffff 125deg,
+    #f97316 135deg,
+    rgba(225, 29, 72, 0.9) 150deg,
+    transparent 170deg,
+    transparent 255deg,
+    rgba(255, 0, 127, 0.35) 270deg,
+    #ff007f 290deg,
+    #ffffff 300deg,
+    #f43f5e 312deg,
+    transparent 332deg,
+    transparent 360deg
+  );
+  animation: laserSpin 4.2s linear infinite;
+  pointer-events: none;
+}
+
+/* 4. SOLAR YELLOW / GOLDEN AMBER & LIME LASER (FOR TACTICAL COMMAND ROOM / TACTICS TABS) */
+.laser-frame-solar {
+  position: relative;
+  overflow: hidden;
+  padding: 2.5px;
+  border-radius: 1.5rem;
+  box-shadow: 0 20px 50px -10px rgba(0, 0, 0, 0.9), 0 0 35px -5px rgba(234, 179, 8, 0.4);
+}
+
+.laser-beam-solar {
+  position: absolute;
+  inset: -150%;
+  background: conic-gradient(
+    from 0deg,
+    transparent 0deg,
+    transparent 75deg,
+    rgba(234, 179, 8, 0.35) 90deg,
+    #eab308 110deg,
+    #facc15 120deg,
+    #ffffff 125deg,
+    #84cc16 136deg,
+    rgba(234, 179, 8, 0.85) 150deg,
+    transparent 170deg,
+    transparent 255deg,
+    rgba(132, 204, 22, 0.35) 270deg,
+    #facc15 290deg,
+    #ffffff 300deg,
+    #eab308 312deg,
+    transparent 332deg,
+    transparent 360deg
+  );
+  animation: laserSpin 4.8s linear infinite;
+  pointer-events: none;
+}
+
+/* 5. MINT NEON EMERALD & ICE CYAN LASER (FOR TRANSFER BUDGET WARCHEST) */
+.laser-frame-mint {
+  position: relative;
+  overflow: hidden;
+  padding: 2.5px;
+  border-radius: 1.25rem;
+  box-shadow: 0 16px 45px -8px rgba(0, 0, 0, 0.9), 0 0 36px -4px rgba(16, 185, 129, 0.45);
+}
+
+.laser-beam-mint {
+  position: absolute;
+  inset: -150%;
+  background: conic-gradient(
+    from 0deg,
+    transparent 0deg,
+    transparent 75deg,
+    rgba(16, 185, 129, 0.35) 90deg,
+    #10b981 110deg,
+    #34d399 120deg,
+    #ffffff 125deg,
+    #06b6d4 135deg,
+    rgba(5, 150, 105, 0.85) 150deg,
+    transparent 170deg,
+    transparent 255deg,
+    rgba(6, 182, 212, 0.35) 270deg,
+    #34d399 290deg,
+    #ffffff 300deg,
+    #10b981 312deg,
+    transparent 332deg,
+    transparent 360deg
+  );
+  animation: laserSpin 3.8s linear infinite;
+  pointer-events: none;
+}
+
+/* 6. NEON VIOLET & AMETHYST PURPLE LASER (FOR SQUAD ROSTER TAB & FEATURED CLUBS) */
+.laser-frame-purple {
+  position: relative;
+  overflow: hidden;
+  padding: 3px;
+  border-radius: 1.5rem;
+  box-shadow: 0 20px 50px -10px rgba(0, 0, 0, 0.95), 0 0 35px -5px rgba(168, 85, 247, 0.45);
+}
+
+.laser-beam-purple {
+  position: absolute;
+  inset: -150%;
+  background: conic-gradient(
+    from 0deg,
+    transparent 0deg,
+    transparent 75deg,
+    rgba(168, 85, 247, 0.35) 90deg,
+    #9333ea 110deg,
+    #c084fc 120deg,
+    #ffffff 125deg,
+    #e879f9 135deg,
+    rgba(147, 51, 234, 0.9) 150deg,
+    transparent 170deg,
+    transparent 255deg,
+    rgba(232, 121, 249, 0.35) 270deg,
+    #c084fc 290deg,
+    #ffffff 300deg,
+    #9333ea 312deg,
+    transparent 332deg,
+    transparent 360deg
+  );
+  animation: laserSpin 4.2s linear infinite;
+  pointer-events: none;
+}
+
+/* 7. SUNSET TANGERINE & CORAL ORANGE LASER (FOR CLUB FACILITIES & STADIUM TAB) */
+.laser-frame-orange {
+  position: relative;
+  overflow: hidden;
+  padding: 3px;
+  border-radius: 1.5rem;
+  box-shadow: 0 20px 50px -10px rgba(0, 0, 0, 0.95), 0 0 35px -5px rgba(249, 115, 22, 0.45);
+}
+
+.laser-beam-orange {
+  position: absolute;
+  inset: -150%;
+  background: conic-gradient(
+    from 0deg,
+    transparent 0deg,
+    transparent 75deg,
+    rgba(249, 115, 22, 0.35) 90deg,
+    #ea580c 110deg,
+    #fb923c 120deg,
+    #ffffff 125deg,
+    #facc15 135deg,
+    rgba(234, 88, 12, 0.9) 150deg,
+    transparent 170deg,
+    transparent 255deg,
+    rgba(250, 204, 21, 0.35) 270deg,
+    #fb923c 290deg,
+    #ffffff 300deg,
+    #ea580c 312deg,
+    transparent 332deg,
+    transparent 360deg
+  );
+  animation: laserSpin 4.6s linear infinite;
+  pointer-events: none;
+}
+
+/* 8. ELECTRIC AZURE & OCEAN BLUE LASER (FOR SERVER UNIVERSE TAB) */
+.laser-frame-azure {
+  position: relative;
+  overflow: hidden;
+  padding: 3px;
+  border-radius: 1.5rem;
+  box-shadow: 0 20px 50px -10px rgba(0, 0, 0, 0.95), 0 0 35px -5px rgba(59, 130, 246, 0.45);
+}
+
+.laser-beam-azure {
+  position: absolute;
+  inset: -150%;
+  background: conic-gradient(
+    from 0deg,
+    transparent 0deg,
+    transparent 75deg,
+    rgba(59, 130, 246, 0.35) 90deg,
+    #2563eb 110deg,
+    #60a5fa 120deg,
+    #ffffff 125deg,
+    #06b6d4 135deg,
+    rgba(37, 99, 235, 0.9) 150deg,
+    transparent 170deg,
+    transparent 255deg,
+    rgba(6, 182, 212, 0.35) 270deg,
+    #60a5fa 290deg,
+    #ffffff 300deg,
+    #2563eb 312deg,
+    transparent 332deg,
+    transparent 360deg
+  );
+  animation: laserSpin 4s linear infinite;
+  pointer-events: none;
+}
+
+/* 9. ACID LIME & NEON CHARTREUSE LASER (FOR 30 SERVERS RADAR & MARKET) */
+.laser-frame-lime {
+  position: relative;
+  overflow: hidden;
+  padding: 3px;
+  border-radius: 1.5rem;
+  box-shadow: 0 20px 50px -10px rgba(0, 0, 0, 0.95), 0 0 38px -5px rgba(132, 204, 22, 0.48);
+}
+
+.laser-beam-lime {
+  position: absolute;
+  inset: -150%;
+  background: conic-gradient(
+    from 0deg,
+    transparent 0deg,
+    transparent 75deg,
+    rgba(132, 204, 22, 0.35) 90deg,
+    #65a30d 110deg,
+    #a3e635 120deg,
+    #ffffff 125deg,
+    #22c55e 135deg,
+    rgba(101, 163, 13, 0.9) 150deg,
+    transparent 170deg,
+    transparent 255deg,
+    rgba(34, 197, 94, 0.35) 270deg,
+    #a3e635 290deg,
+    #ffffff 300deg,
+    #65a30d 312deg,
+    transparent 332deg,
+    transparent 360deg
+  );
+  animation: laserSpin 3.6s linear infinite;
+  pointer-events: none;
+}
+
+/* 10. ELECTRIC ROSE & HOT PINK LASER (FOR FINANCIAL LEDGER & SCENARIO LAB) */
+.laser-frame-pink {
+  position: relative;
+  overflow: hidden;
+  padding: 3px;
+  border-radius: 1.5rem;
+  box-shadow: 0 20px 50px -10px rgba(0, 0, 0, 0.95), 0 0 35px -5px rgba(236, 72, 153, 0.45);
+}
+
+.laser-beam-pink {
+  position: absolute;
+  inset: -150%;
+  background: conic-gradient(
+    from 0deg,
+    transparent 0deg,
+    transparent 75deg,
+    rgba(236, 72, 153, 0.35) 90deg,
+    #db2777 110deg,
+    #f472b6 120deg,
+    #ffffff 125deg,
+    #fb7185 135deg,
+    rgba(219, 39, 119, 0.9) 150deg,
+    transparent 170deg,
+    transparent 255deg,
+    rgba(251, 113, 133, 0.35) 270deg,
+    #f472b6 290deg,
+    #ffffff 300deg,
+    #db2777 312deg,
+    transparent 332deg,
+    transparent 360deg
+  );
+  animation: laserSpin 4.4s linear infinite;
+  pointer-events: none;
+}
+
+/* 11. GOLDEN VAULT LASER (FOR €100,000,000 WARCHEST PILLARS) */
+.laser-frame-gold-vault {
+  position: relative;
+  overflow: hidden;
+  padding: 3px;
+  border-radius: 1.5rem;
+  box-shadow: 0 20px 50px -10px rgba(0, 0, 0, 0.95), 0 0 40px -5px rgba(245, 158, 11, 0.45);
+}
+
+.laser-beam-gold-vault {
+  position: absolute;
+  inset: -150%;
+  background: conic-gradient(
+    from 0deg,
+    transparent 0deg,
+    transparent 75deg,
+    rgba(245, 158, 11, 0.4) 90deg,
+    #d97706 110deg,
+    #fbbf24 120deg,
+    #ffffff 125deg,
+    #fef08a 135deg,
+    rgba(217, 119, 6, 0.9) 150deg,
+    transparent 170deg,
+    transparent 255deg,
+    rgba(254, 240, 138, 0.35) 270deg,
+    #fbbf24 290deg,
+    #ffffff 300deg,
+    #d97706 312deg,
+    transparent 332deg,
+    transparent 360deg
+  );
+  animation: laserSpin 3.4s linear infinite;
+  pointer-events: none;
+}
+
+/* 12. COMPACT TAB PILL LASER WRAPPERS (FOR INDIVIDUAL ACTIVE TABS) */
+.laser-tab-pill {
+  position: relative;
+  overflow: hidden;
+  padding: 2px;
+  border-radius: 0.875rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.5);
+}
+
+.laser-tab-pill-solar .laser-tab-beam {
+  background: conic-gradient(from 0deg, transparent 0deg, #facc15 120deg, #ffffff 135deg, transparent 160deg, transparent 360deg);
+  animation: laserSpin 2.4s linear infinite;
+}
+
+.laser-tab-pill-purple .laser-tab-beam {
+  background: conic-gradient(from 0deg, transparent 0deg, #c084fc 120deg, #ffffff 135deg, transparent 160deg, transparent 360deg);
+  animation: laserSpin 2.4s linear infinite;
+}
+
+.laser-tab-pill-orange .laser-tab-beam {
+  background: conic-gradient(from 0deg, transparent 0deg, #fb923c 120deg, #ffffff 135deg, transparent 160deg, transparent 360deg);
+  animation: laserSpin 2.4s linear infinite;
+}
+
+.laser-tab-pill-azure .laser-tab-beam {
+  background: conic-gradient(from 0deg, transparent 0deg, #60a5fa 120deg, #ffffff 135deg, transparent 160deg, transparent 360deg);
+  animation: laserSpin 2.4s linear infinite;
+}
+
+.laser-tab-pill-lime .laser-tab-beam {
+  background: conic-gradient(from 0deg, transparent 0deg, #a3e635 120deg, #ffffff 135deg, transparent 160deg, transparent 360deg);
+  animation: laserSpin 2.4s linear infinite;
+}
+
+.laser-tab-pill-pink .laser-tab-beam {
+  background: conic-gradient(from 0deg, transparent 0deg, #f472b6 120deg, #ffffff 135deg, transparent 160deg, transparent 360deg);
+  animation: laserSpin 2.4s linear infinite;
+}
+
+.laser-tab-pill-emerald .laser-tab-beam {
+  background: conic-gradient(from 0deg, transparent 0deg, #34d399 120deg, #ffffff 135deg, transparent 160deg, transparent 360deg);
+  animation: laserSpin 2.4s linear infinite;
+}
+
+.laser-tab-beam {
+  position: absolute;
+  inset: -150%;
+  pointer-events: none;
+}
+

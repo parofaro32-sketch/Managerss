@@ -1,0 +1,8 @@
+{
+  "name": "Remix Remix Remix Remix Pro Manager Hub",
+  "description": "A premium, professional football management platform featuring secure authentication, 30 game servers, and deep club ownership systems.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
