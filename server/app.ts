@@ -169,6 +169,60 @@ apiRouter.get('/servers/:serverId/clubs', (req: Request, res: Response): void =>
   }
 });
 
+// Direct club queries by serverId query param or all clubs
+apiRouter.get('/clubs', (req: Request, res: Response): void => {
+  try {
+    const serverId = (req.query.serverId || req.query.server_id || '').toString();
+    if (serverId) {
+      const { server, clubs } = getServerClubs(serverId);
+      res.json({ success: true, server, totalClubs: clubs.length, clubs });
+      return;
+    }
+    const servers = getServersWithStats();
+    const allClubs = servers.flatMap((s) => getServerClubs(s.id).clubs);
+    res.json({ success: true, totalClubs: allClubs.length, clubs: allClubs });
+  } catch (err: any) {
+    res.status(404).json({ error: err.message });
+  }
+});
+
+apiRouter.get('/clubs/:clubId', (req: Request, res: Response): void => {
+  try {
+    const { clubId } = req.params;
+    const database = initDatabase();
+    const club = database.clubs[clubId];
+    if (!club) {
+      res.status(404).json({ error: `Football club '${clubId}' not found.` });
+      return;
+    }
+    const server = database.servers.find((s) => s.id === club.serverId);
+    res.json({ success: true, club, server });
+  } catch (err: any) {
+    res.status(404).json({ error: err.message });
+  }
+});
+
+// Manager Dashboard endpoint
+apiRouter.get('/manager/dashboard', (req: Request, res: Response): void => {
+  const token = getAuthToken(req);
+  if (!token) {
+    res.status(401).json({ error: 'Authentication required. Please log in.' });
+    return;
+  }
+  const session = getSessionUser(token);
+  if (!session) {
+    res.status(401).json({ error: 'Session invalid or expired.' });
+    return;
+  }
+  res.json({
+    success: true,
+    user: session.user,
+    club: session.activeClub,
+    server: session.activeServer,
+    transferBudget: session.activeClub?.transferBudget || 100000000,
+  });
+});
+
 const handleClubClaim = (req: Request, res: Response): void => {
   const token = getAuthToken(req);
   if (!token) {
@@ -645,7 +699,7 @@ apiRouter.get('/servers/:serverId/fixtures', (req: Request, res: Response): void
   }
 });
 
-apiRouter.post('/servers/:serverId/simulate-fixture', (req: Request, res: Response): void => {
+const handleSimulateMatch = (req: Request, res: Response): void => {
   try {
     const { serverId } = req.params;
     const { fixtureId } = req.body || {};
@@ -661,7 +715,10 @@ apiRouter.post('/servers/:serverId/simulate-fixture', (req: Request, res: Respon
   } catch (err: any) {
     res.status(400).json({ error: err.message });
   }
-});
+};
+
+apiRouter.post('/servers/:serverId/simulate-fixture', handleSimulateMatch);
+apiRouter.post('/servers/:serverId/simulate-match', handleSimulateMatch);
 
 // ----------------------------------------------------
 // Manager Inbox & Mailbox API Endpoints
@@ -761,7 +818,17 @@ apiRouter.use((req: Request, res: Response) => {
 // If a request hits the backend with a stripped '/api' prefix (e.g. from some serverless rewrite rules),
 // rewrite it to '/api/...' so it matches apiRouter, but leave frontend paths untouched.
 app.use((req: Request, res: Response, next: NextFunction) => {
-  const apiPrefixes = ['/clubs', '/servers', '/auth', '/leagues', '/stats', '/download-zip'];
+  const apiPrefixes = [
+    '/clubs',
+    '/servers',
+    '/auth',
+    '/leagues',
+    '/stats',
+    '/download-zip',
+    '/transfers',
+    '/inbox',
+    '/manager',
+  ];
   if (apiPrefixes.some(prefix => req.path.startsWith(prefix))) {
     req.url = `/api${req.url}`;
   }

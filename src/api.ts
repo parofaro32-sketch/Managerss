@@ -47,10 +47,15 @@ async function request<T>(endpoint: string, options: RequestInit = {}): Promise<
     headers,
   });
 
+  if (response.status === 401) {
+    removeStoredToken();
+  }
+
   const data = await response.json().catch(() => ({}));
 
   if (!response.ok) {
-    throw new Error(data.error || data.message || `Request failed with status ${response.status}`);
+    const errorMsg = data.error || data.message || `Request failed with status ${response.status}`;
+    throw new Error(errorMsg);
   }
 
   return data as T;

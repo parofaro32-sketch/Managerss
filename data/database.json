@@ -13908,10 +13908,10 @@
       "secondaryColor": "#0f172a",
       "accentColor": "#38bdf8",
       "foundedYear": 1933,
-      "managerId": null,
-      "managerUsername": null,
+      "managerId": "usr_3d8c2dd0-1207-4b96-9b2b-f521942201af",
+      "managerUsername": "manager_audit_test",
       "transferBudget": 100000000,
-      "claimedAt": null,
+      "claimedAt": "2026-10-24T11:48:32.662Z",
       "squad": [
         {
           "id": "899a30be-df5d-4d5e-a4e1-8fc28517f120",
@@ -396848,6 +396848,26 @@
       "createdAt": "2026-10-23T19:34:49.946Z",
       "activeServerId": null,
       "activeClubId": null
+    },
+    "usr_3d8c2dd0-1207-4b96-9b2b-f521942201af": {
+      "id": "usr_3d8c2dd0-1207-4b96-9b2b-f521942201af",
+      "username": "manager_audit_test",
+      "email": "manager_audit_test@managernol.club",
+      "passwordHash": "a9090869f0993695ca3812945b5be5852330c837bea924c5e7199b3fb82dbcd0ae2206c5cce8e855030334ca68599a59399d54ea67cfd1d0db9a70469cdd736f",
+      "salt": "a8e27ff9904c87cbe8003cc167ba093e",
+      "createdAt": "2026-10-24T11:48:12.781Z",
+      "activeServerId": "srv_eng02",
+      "activeClubId": "srv_eng02_c02"
+    },
+    "usr_8644e094-f16d-4d6b-82fc-d3916d9e655e": {
+      "id": "usr_8644e094-f16d-4d6b-82fc-d3916d9e655e",
+      "username": "interloper_manager",
+      "email": "interloper_manager@managernol.club",
+      "passwordHash": "304cea9a9af4fad173f58b9559ac6a1d04a6624704b16d3011094e1a15a587bf0b18a7cfecf8bb42c3f0d27238c4adcd632ab2002dffa400925e1f52e6c64b6f",
+      "salt": "be86e7684f1c5ce337f8d4b09ee21cb2",
+      "createdAt": "2026-10-24T11:48:32.912Z",
+      "activeServerId": null,
+      "activeClubId": null
     }
   },
   "sessions": {
@@ -397210,6 +397230,30 @@
       "userId": "usr_5b9c711d-3092-46f3-9bfa-96bb3f3c0ea3",
       "createdAt": "2026-10-23T19:34:49.946Z",
       "expiresAt": "2026-11-22T19:34:49.946Z"
+    },
+    "6ccde9559c79c5ad036c341550316d545f1db000d9a7ed20d044aae7aff31f6d": {
+      "token": "6ccde9559c79c5ad036c341550316d545f1db000d9a7ed20d044aae7aff31f6d",
+      "userId": "usr_3d8c2dd0-1207-4b96-9b2b-f521942201af",
+      "createdAt": "2026-10-24T11:48:12.781Z",
+      "expiresAt": "2026-11-23T11:48:12.781Z"
+    },
+    "d6810018cad7b924fe0296acdfcc988e43cee28b4189b064fb176e150420fc19": {
+      "token": "d6810018cad7b924fe0296acdfcc988e43cee28b4189b064fb176e150420fc19",
+      "userId": "usr_3d8c2dd0-1207-4b96-9b2b-f521942201af",
+      "createdAt": "2026-10-24T11:48:32.406Z",
+      "expiresAt": "2026-11-23T11:48:32.406Z"
+    },
+    "f7d46526a67e791e69367bccf119d8ae18a5d6e6bc524e4a5b20f6d2267d21da": {
+      "token": "f7d46526a67e791e69367bccf119d8ae18a5d6e6bc524e4a5b20f6d2267d21da",
+      "userId": "usr_8644e094-f16d-4d6b-82fc-d3916d9e655e",
+      "createdAt": "2026-10-24T11:48:32.912Z",
+      "expiresAt": "2026-11-23T11:48:32.912Z"
+    },
+    "c165828f5986b65767dafc355ce3c37316406419bf93ed8b4899ec33f8b09828": {
+      "token": "c165828f5986b65767dafc355ce3c37316406419bf93ed8b4899ec33f8b09828",
+      "userId": "usr_3d8c2dd0-1207-4b96-9b2b-f521942201af",
+      "createdAt": "2026-10-24T11:48:41.463Z",
+      "expiresAt": "2026-11-23T11:48:41.463Z"
     }
   },
   "listings": {
@@ -401297,6 +401341,55 @@
       "timestamp": "2026-10-23T19:28:00.122Z",
       "homeClubId": "srv_eu01_c30",
       "homeClubName": "Westerfield FC"
+    },
+    "news_92d86c56-f6da-4111-ba28-61ff9b9a0258": {
+      "id": "news_92d86c56-f6da-4111-ba28-61ff9b9a0258",
+      "serverId": "srv_eng02",
+      "category": "Club Announcements",
+      "title": "Bromfield Albion Appoints @manager_audit_test as Manager",
+      "description": "Bromfield Albion has officially appointed manager @manager_audit_test. The board has provided an immediate €100,000,000 Warchest to build a championship roster!",
+      "timestamp": "2026-10-24T11:48:32.662Z",
+      "homeClubId": "srv_eng02_c02",
+      "homeClubName": "Bromfield Albion"
+    },
+    "news_0c7d57bc-88df-47a4-9b4e-8b3326840183": {
+      "id": "news_0c7d57bc-88df-47a4-9b4e-8b3326840183",
+      "serverId": "srv_eng02",
+      "category": "Match Reports",
+      "title": "MATCH REPORT: Alderley Harriers Overcome Bromfield Albion 5 - 4",
+      "description": "Alderley Harriers secured all three points with a decisive 5 - 4 home triumph over Bromfield Albion at Alderley Heath.",
+      "details": "Goalscorers: Nico Navarro (ALH 53'), Lars Lefebvre (ALH 67'), Marco Nowak (ALH 21'), Soren Lindqvist (ALH 49'), Emil Kovalev (ALH 81'), Oscar Navarro (BFA 73'), Dominik Lefebvre (BFA 42'), Rafael Caldwell (BFA 53'), Christian Salas (BFA 13')",
+      "timestamp": "2026-10-24T11:48:33.155Z",
+      "homeClubId": "srv_eng02_c01",
+      "homeClubName": "Alderley Harriers",
+      "awayClubId": "srv_eng02_c02",
+      "awayClubName": "Bromfield Albion",
+      "score": "5 - 4",
+      "matchStats": {
+        "homePossession": 52,
+        "awayPossession": 48,
+        "homeShots": 15,
+        "awayShots": 12,
+        "homeCorners": 3,
+        "awayCorners": 3,
+        "goalScorers": [
+          "Nico Navarro (ALH 53')",
+          "Lars Lefebvre (ALH 67')",
+          "Marco Nowak (ALH 21')",
+          "Soren Lindqvist (ALH 49')",
+          "Emil Kovalev (ALH 81')",
+          "Oscar Navarro (BFA 73')",
+          "Dominik Lefebvre (BFA 42')",
+          "Rafael Caldwell (BFA 53')",
+          "Christian Salas (BFA 13')"
+        ],
+        "yellowCards": [
+          "ALH #4 (34')",
+          "BFA #6 (61')"
+        ],
+        "attendance": 29882,
+        "stadium": "Alderley Heath"
+      }
     }
   },
   "inbox": {
@@ -401536,7 +401629,9 @@
       "awayClubName": "Bromfield Albion",
       "scheduledTime": "2026-10-24T16:05:35.601Z",
       "matchday": 1,
-      "played": false
+      "played": true,
+      "score": "5 - 4",
+      "reportNewsId": "news_0c7d57bc-88df-47a4-9b4e-8b3326840183"
     },
     "fix_srv_eng02_m1_2": {
       "id": "fix_srv_eng02_m1_2",
