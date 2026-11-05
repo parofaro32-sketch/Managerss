@@ -6,6 +6,7 @@ import { AuthModal } from './components/AuthModal.tsx';
 import { ServerSelection } from './components/ServerSelection.tsx';
 import { ClubSelection } from './components/ClubSelection.tsx';
 import { ManagerDashboard } from './components/ManagerDashboard.tsx';
+import MatchEngine from './components/MatchEngine.tsx';
 import { Loader2 } from 'lucide-react';
 import { AnimatedLighting } from './components/AnimatedLighting.tsx';
 import { ManagerNolLogo } from './components/ManagerNolLogo.tsx';
@@ -24,6 +25,9 @@ export default function App() {
   const [selectedServer, setSelectedServer] = useState<ServerItem | null>(null);
   const [serverClubs, setServerClubs] = useState<ClubItem[]>([]);
   const [clubsLoading, setClubsLoading] = useState(false);
+
+  // Match state
+  const [matchOpen, setMatchOpen] = useState(false);
 
   // Modals
   const [authModalOpen, setAuthModalOpen] = useState(false);
@@ -98,6 +102,17 @@ export default function App() {
     setSelectedServer(null);
     setServerClubs([]);
     setViewState('landing');
+  };
+
+  const handleOpenMatch = () => {
+    setMatchOpen(true);
+    setViewState('match');
+  };
+
+  const handleCloseMatch = () => {
+    setMatchOpen(false);
+    if (activeClub && activeServer) setViewState('dashboard');
+    else setViewState('servers');
   };
 
   // Step 4: Handle Server Selection
@@ -237,7 +252,13 @@ export default function App() {
               if (res && res.servers) setServers(res.servers);
             }).catch(() => {});
           }}
+          onPlayMatch={handleOpenMatch}
         />
+      )}
+
+      {/* Match View */}
+      {viewState === 'match' && matchOpen && (
+        <MatchEngine onExit={handleCloseMatch} />
       )}
 
       {/* Auth Modal */}

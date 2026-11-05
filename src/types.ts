@@ -214,7 +214,7 @@ export interface FixtureItem {
   reportNewsId?: string;
 }
 
-export type ViewState = 'landing' | 'servers' | 'clubs' | 'dashboard';
+export type ViewState = 'landing' | 'servers' | 'clubs' | 'dashboard' | 'match';
 export type DashboardTab =
   | 'tactics'
   | 'squad'
