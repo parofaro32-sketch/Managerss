@@ -22,7 +22,7 @@ import {
   Newspaper,
   Mail,
   Bell,
-  ChevronRight
+  ChevronRight,
 } from 'lucide-react';
 import { ClubItem, ServerItem, User, LineupConfig } from '../types.ts';
 import { api } from '../api.ts';
@@ -49,6 +49,7 @@ interface ManagerDashboardProps {
   onViewLanding?: () => void;
   onResignSuccess?: () => void;
   onClubUpdated?: (club: ClubItem) => void;
+  onPlayMatch?: () => void;
   initialTab?: 'tactics' | 'squad' | 'stamina' | 'conditioning' | 'transfers' | 'news' | 'inbox' | 'overview' | 'finances' | 'server';
 }
 
@@ -61,6 +62,7 @@ export const ManagerDashboard: React.FC<ManagerDashboardProps> = ({
   onViewLanding,
   onResignSuccess,
   onClubUpdated,
+  onPlayMatch,
   initialTab = 'tactics',
 }) => {
   const [club, setClub] = useState<ClubItem>(initialClub);
@@ -311,6 +313,15 @@ export const ManagerDashboard: React.FC<ManagerDashboardProps> = ({
               <Server className="w-3.5 h-3.5 text-slate-400" />
               <span>Servers</span>
             </button>
+
+            {onPlayMatch && (
+              <button
+                onClick={onPlayMatch}
+                className="px-3 py-2 rounded-xl bg-emerald-600 hover:bg-emerald-500 border border-emerald-500/30 text-xs font-mono text-white transition-colors cursor-pointer flex items-center gap-1.5 font-bold"
+              >
+                <Activity className="w-3 h-3" /> <span className="hidden sm:inline">Play 3D Match</span>
+              </button>
+            )}
 
             <button
               onClick={() => setResignModalOpen(true)}
